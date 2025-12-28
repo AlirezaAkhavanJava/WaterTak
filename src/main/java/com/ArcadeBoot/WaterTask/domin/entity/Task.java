@@ -19,7 +19,7 @@ import java.util.UUID;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", unique = true, nullable = false, updatable = false)
+    @Column(name = "id", unique = true, updatable = false)
     private UUID id;
 
     @Column(name = "title", nullable = false)

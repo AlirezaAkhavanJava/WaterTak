@@ -50,4 +50,9 @@ public class TaskListController {
         return taskListMapper.toDto(updatedTaskList);
     }
 
+    @DeleteMapping(path = "/delete/{taskListId}")
+    public void deleteTaskList(@PathVariable("taskListId") UUID id) {
+        taskListService.deleteTaskList(id);
+    }
+
 }
