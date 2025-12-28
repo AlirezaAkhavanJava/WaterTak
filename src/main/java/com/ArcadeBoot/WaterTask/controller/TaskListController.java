@@ -39,4 +39,15 @@ public class TaskListController {
     public Optional<TaskListDto> getTaskListById(@PathVariable("taskListId") UUID id) {
         return taskListService.getTaskList(id).map(taskListMapper::toDto);
     }
+
+    @PutMapping(path = "/update/{id}")
+    public TaskListDto updateTaskList(
+            @PathVariable("id") UUID taskListId,
+            @RequestBody TaskListDto taskListDto
+
+    ) {
+        TaskList updatedTaskList = taskListService.updateTaskList(taskListId, taskListMapper.fromDto(taskListDto));
+        return taskListMapper.toDto(updatedTaskList);
+    }
+
 }
